@@ -1,9 +1,15 @@
+import { Container, Grid, Typography} from '@mui/material';
+
 function App() {
 
   return (
-    <div className="App">
-      <h1>News App</h1>
-    </div>
+    <Container>
+      <header>
+        <Typography align='center' marginY={5} component='h1' variant='h3'>
+          News API
+        </Typography>
+      </header>
+    </Container>
   )
 }
 
