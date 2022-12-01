@@ -1,4 +1,5 @@
 import { Container, Grid, Typography} from '@mui/material';
+import Form from '../components/Form';
 
 function App() {
 
@@ -9,6 +10,16 @@ function App() {
           News API
         </Typography>
       </header>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+      >
+        <Grid item md={6} xs={12}>
+          <Form />
+        </Grid>
+        
+      </Grid>
     </Container>
   )
 }
