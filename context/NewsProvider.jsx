@@ -14,7 +14,7 @@ const NewsProvider = ({children}) => {
 
             const { data } = await axios(url);
             
-            console.log(data);
+            setNews(data.articles);
         }
         getNews();
     }, [category]);
@@ -26,7 +26,8 @@ const NewsProvider = ({children}) => {
     return (
         <NewsContext.Provider value={{
             category,
-            handleCategoryChange
+            handleCategoryChange,
+            news,
         }}>
             {children}
         </NewsContext.Provider>
