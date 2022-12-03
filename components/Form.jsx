@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, Select, MenuItem, Button, Box } from "@mui/material";
+import { FormControl, InputLabel, Select, MenuItem, Button } from "@mui/material";
 import { CATEGORIES } from "../constants";
 import useNews from "../hooks/useNews";
 

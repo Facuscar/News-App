@@ -10,7 +10,7 @@ const NewsList = () => {
             <Typography textAlign='center' marginY={5} variant='h3' component='h2'>
                 Latest News.
             </Typography>
-            <Grid>
+            <Grid container spacing={2}>
                 {news.map( article => <New article={article} /> )}
             </Grid>
         </>
