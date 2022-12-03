@@ -22,8 +22,25 @@ const NewsProvider = ({children}) => {
         getNews();
     }, [category]);
 
+    useEffect(() => {
+        const getNews = async () => {
+            const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=${page}`
+
+            const { data } = await axios(url);
+            
+            setNews(data.articles);
+            setTotalNews(data.totalResults);
+        }
+        getNews();
+    }, [page]);
+
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
+        setPage(1)
+    }
+
+    const handlePageChange = (e) => {
+        setPage(e.target.textContent)
     }
 
     return (
@@ -32,6 +49,8 @@ const NewsProvider = ({children}) => {
             handleCategoryChange,
             news,
             totalNews,
+            handlePageChange,
+            page,
         }}>
             {children}
         </NewsContext.Provider>

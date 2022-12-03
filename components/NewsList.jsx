@@ -3,7 +3,7 @@ import useNews from '../hooks/useNews';
 import New from './New';
 
 const NewsList = () => {
-    const { news, totalNews } = useNews();
+    const { news, totalNews, handlePageChange, page } = useNews();
 
     const pages = Math.ceil(totalNews / 20);
 
@@ -13,10 +13,10 @@ const NewsList = () => {
                 Latest News.
             </Typography>
             <Grid container spacing={2}>
-                {news.map( article => <New article={article} /> )}
+                {news.map( article => <New article={article} key={article.url}/> )}
             </Grid>
             <Stack spacing={2} justifyContent='center' alignItems='center'>
-                <Pagination count={pages} color="primary">
+                <Pagination count={pages} color="primary" onChange={handlePageChange} page={Number(page)}>
 
                 </Pagination>
             </Stack>
