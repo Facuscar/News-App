@@ -7,6 +7,8 @@ const NewsProvider = ({children}) => {
 
     const [category, setCategory] = useState('general');
     const [news, setNews] = useState([]);
+    const [page, setPage] = useState(1);
+    const [totalNews, setTotalNews] = useState(0);
 
     useEffect(() => {
         const getNews = async () => {
