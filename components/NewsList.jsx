@@ -3,7 +3,9 @@ import useNews from '../hooks/useNews';
 import New from './New';
 
 const NewsList = () => {
-    const { news } = useNews();
+    const { news, totalNews } = useNews();
+
+    const pages = Math.ceil(totalNews / 20);
 
     return (
         <>
@@ -14,7 +16,7 @@ const NewsList = () => {
                 {news.map( article => <New article={article} /> )}
             </Grid>
             <Stack spacing={2} justifyContent='center' alignItems='center'>
-                <Pagination count={3} color="primary">
+                <Pagination count={pages} color="primary">
 
                 </Pagination>
             </Stack>

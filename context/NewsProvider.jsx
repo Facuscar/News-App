@@ -17,6 +17,7 @@ const NewsProvider = ({children}) => {
             const { data } = await axios(url);
             
             setNews(data.articles);
+            setTotalNews(data.totalResults);
         }
         getNews();
     }, [category]);
@@ -30,6 +31,7 @@ const NewsProvider = ({children}) => {
             category,
             handleCategoryChange,
             news,
+            totalNews,
         }}>
             {children}
         </NewsContext.Provider>
